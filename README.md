@@ -13,3 +13,6 @@ This repo is just my own mini task in which allowed me to practice barebones HTM
 # Screenshot
 
 <img src="images/screenshot.png">
+
+# Configuration
+- in app.js, one can modify the max game score to be something other than the default of 50.
