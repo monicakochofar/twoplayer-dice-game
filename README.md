@@ -3,7 +3,7 @@ This repo is just my own mini task in which allowed me to practice barebones HTM
 
 # Rules
 - there is a max of two players playing
-- there is a global score, first to reach a global score of 100 wins the game
+- there is a global score, first to reach a global score of **50** wins the game
 - there is a round score, as these two players will be playing in rounds
 - in each turn, a player rolls a dice, they can roll the dice as many times as they wish, and whatever is rolled gets added to their ROUND score
 - however if they roll a ONE, then their ROUND score goes back to zero and its the next players turn.
