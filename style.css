@@ -1,16 +1,21 @@
 :root { 
   --primary-color: #3B3A36;
   --secondary-color: #724A30;
-  --tertiary-color: #C5B2A3;
+  --background-color: white;
+  --icon-color: #E53935;
+  --active-player-color: #D7CCC8;
+  --inactive-box-shadow-color: #ABB2B9;
+  --body-box-shadow-color: #D5D8DC;
+  --active-box-shadow-color: #2C3E50;
 }
 
 body {
-  font-family: -apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",Arial,sans-serif;
+  font-family: Lato;
 }
 
 i {
   padding-right: 8px;
-  color: var(--secondary-color);
+  color: var(--icon-color);
   font-size: 24px;
 }
 
@@ -21,7 +26,6 @@ button {
   padding: 8px;
   background: none;
   border: none;
-  /* border: 1px solid var(--primary-color); */
   font-size: 16px;
   cursor: pointer;
 }
@@ -34,12 +38,17 @@ button {
   padding-bottom: 20px;
 }
 
+.header > span {
+  text-shadow: 3px 2px 3px var(--inactive-box-shadow-color);
+}
+
 .game-container {
   display: flex;
   justify-content: space-evenly;
   margin: 0 auto;
   width: 80%;
   height: 500px;
+  box-shadow: 16px 15px 38px 18px var(--body-box-shadow-color);
 }
 
 .container {
@@ -48,12 +57,23 @@ button {
   flex: 0 0 32%;
   align-items: center;
   justify-content: center;
-  padding: 20px;
-  border: 1px solid var(--primary-color);
-  border-right: 0;
+  padding: 20px 20px 40px;
+  background-color: var(--background-color);
 }
-.container:last-child {
-  border-right: 1px solid var(--primary-color);
+
+.player-name {
+  display: flex;
+  justify-content: center;
+}
+
+.bullet-pt {
+  display: none;
+  color: var(--icon-color);
+  font-size: 36px;
+  padding: 10px 0 0 8px;
+}
+.is-active > .player-name > .bullet-pt {
+  display: block;
 }
 
 .player-score {
@@ -62,7 +82,6 @@ button {
   align-items: center;
   padding:  20px;
   color: var(--secondary-color);
-  /*border: 1px solid var(--primary-color);*/
 }
 
 .round-score {
@@ -75,17 +94,25 @@ button {
   margin-top: auto;
   background-color: var(--primary-color);
   color: white;
+  box-shadow: 8px 2px 13px 0px var(--inactive-box-shadow-color);
 }
+
 
 .global-score > .score-number {
   font-size: 65px;
+  color: var(--icon-color);
 }
 .round-score > .score-number {
   font-size: 81px;
+  color: var(--icon-color); 
 }
 
 .is-active {
-  background-color: var(--tertiary-color);
+  background-color: var(--active-player-color);
+} 
+
+.is-active > .global-score {
+  box-shadow: 8px 2px 13px 0px var(--active-box-shadow-color);
 }
 
 .title-current-player {
@@ -98,8 +125,10 @@ button {
 }
 
 .dice-image {
+  display: none;
   width: 88px;
   border: 1px solid var(--primary-color);
+  box-shadow: 4px 5px 7px 0px var(--inactive-box-shadow-color);
 }
 
 .dice-roll-results {
@@ -117,4 +146,8 @@ button {
 .player-moves {
   display: flex;
   flex-direction: column;
+}
+
+.result-showdiceresult {
+  display: none;
 }

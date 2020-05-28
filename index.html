@@ -13,13 +13,18 @@
 
     <div class="header">
       <span><h1>Pig Game</h1></span>
-      <button class="btn-new"><i class="ion-ios-plus-outline"></i>New game</button>
+      <button class="btn-new">
+        <i class="ion-ios-plus-outline"></i>New game
+      </button>
     </div>
 
     <div class="game-container">
 
       <div class="player-one container is-active">
-        <h2>Player 1</h2>
+        <div class="player-name">
+          <h2>Player 1</h2>
+          <span class="bullet-pt">&#8226;</span>
+        </div>
         <div class="round-score player-score">
           <span><strong>Round Score:</strong></span>
           <span class="score-number">5</span>
@@ -37,8 +42,8 @@
         </div>
         <img src="images/dice-1.png" class="dice-image">
         <div class="dice-roll-results">
-          <span class="result-showdiceresult">dice rolled! +6 points</span>
-          <span class="result-roundlost">round score lost! next player's turn...</span>
+          <span class="result-showdiceresult">Dice rolled! +6 points</span>
+          <span class="result-roundlost">Round score lost! next player's turn...</span>
           <span class="result-holdresult">+20 points! next player's turn...</span>
         </div>
         <div class="player-moves">
@@ -48,7 +53,10 @@
       </div>
   
       <div class="player-two container">
-        <h2>Player 2</h2>
+        <div class="player-name">
+          <h2>Player 2</h2>
+          <span class="bullet-pt">&#8226;</span>
+        </div>
         <div class="round-score player-score">
           <span><strong>Round Score:</strong></span>
           <span class="score-number">10</span>
