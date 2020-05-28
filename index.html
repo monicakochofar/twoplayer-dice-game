@@ -12,7 +12,6 @@
   <body>
 
     <div class="header">
-      <span><h1>Pig Game</h1></span>
       <button class="btn-new">
         <i class="ion-ios-plus-outline"></i>New game
       </button>
@@ -21,30 +20,32 @@
     <div class="game-container">
 
       <div class="player-one container is-active">
+        <img src="images/crown-win.png" class="player-one-crown">
         <div class="player-name">
           <h2>Player 1</h2>
           <span class="bullet-pt">&#8226;</span>
         </div>
         <div class="round-score player-score">
           <span><strong>Round Score:</strong></span>
-          <span class="score-number">5</span>
+          <span class="score-number" id="player-one-roundscore">0</span>
         </div>
         <div class="global-score player-score">
           <span><strong>Global Score:</strong></span>
-          <span class="score-number">42</span>
+          <span class="score-number" id="player-one-globalscore">0</span>
         </div>
       </div>
   
       <div class="dice-roll container">
+        <img src="images/pig-icon.png" class="pig-icon">
         <div class="title-current-player">
-          <h2 class="label">Turn:</h2>
-          <h2>Player 1</h2>
+          <h2>Choose a Move:</h2>
         </div>
         <img src="images/dice-1.png" class="dice-image">
         <div class="dice-roll-results">
           <span class="result-showdiceresult">Dice rolled! +6 points</span>
           <span class="result-roundlost">Round score lost! next player's turn...</span>
-          <span class="result-holdresult">+20 points! next player's turn...</span>
+          <span class="result-holdresult">Global points updated! next player's turn...</span>
+          <span class="result-winner">Winner!</span>
         </div>
         <div class="player-moves">
           <button class="btn-roll"><i class="ion-ios-loop"></i>Roll dice</button>
@@ -53,17 +54,18 @@
       </div>
   
       <div class="player-two container">
+        <img src="images/crown-win.png" class="player-two-crown">
         <div class="player-name">
           <h2>Player 2</h2>
           <span class="bullet-pt">&#8226;</span>
         </div>
         <div class="round-score player-score">
           <span><strong>Round Score:</strong></span>
-          <span class="score-number">10</span>
+          <span class="score-number" id="player-two-roundscore">0</span>
         </div>
         <div class="global-score player-score">
           <span><strong>Global Score:</strong></span>
-          <span class="score-number">52</span>
+          <span class="score-number" id="player-two-globalscore">0</span>
         </div>
       </div>
     </div>

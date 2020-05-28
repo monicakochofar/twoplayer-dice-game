@@ -29,6 +29,9 @@ button {
   font-size: 16px;
   cursor: pointer;
 }
+button:disabled {
+  cursor: auto;
+}
 
 .header {
   display: flex;
@@ -36,10 +39,6 @@ button {
   align-items: center;
   color: var(--secondary-color);
   padding-bottom: 20px;
-}
-
-.header > span {
-  text-shadow: 3px 2px 3px var(--inactive-box-shadow-color);
 }
 
 .game-container {
@@ -120,8 +119,8 @@ button {
   align-items: center;
 }
 
-.label {
-  padding-right: 8px;
+.pig-icon {
+  width: 70px;
 }
 
 .dice-image {
@@ -149,5 +148,26 @@ button {
 }
 
 .result-showdiceresult {
+  display: none;
+}
+
+.player-one-crown {
+  visibility: hidden;
+  width: 70px;
+}
+
+.player-two-crown {
+  visibility: hidden;
+  width: 70px;
+}
+
+.winner > button {
+  color: gray;
+}
+.winner > button > i {
+  color: gray;
+}
+
+.result-winner {
   display: none;
 }
