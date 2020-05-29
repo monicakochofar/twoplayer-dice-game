@@ -7,19 +7,22 @@ document.querySelector('.btn-new').addEventListener('click', function() {
   globalScores = [0,0];
   roundScore = 0;
   document.querySelector('.dice-image').style.display = 'none';
-  document.querySelector('.btn-roll').disabled = false;
-  document.querySelector('.btn-hold').disabled = false;
-  document.querySelector('.player-one-crown').style.visibility = 'hidden';
-  document.querySelector('.player-two-crown').style.visibility = 'hidden';
-
   const winnerDOM = document.querySelector('.winner');
   if (winnerDOM) {
-    winnerDOM.classList.remove('winner');
+    resetWinnerView(winnerDOM);
   }
-  changePlayer(true);
+  updateActivePlayer(true); //reset to player one
   resetMessages();
   resetScores();
 })
+
+function resetWinnerView(winnerDOM) {
+  winnerDOM.classList.remove('winner');
+  document.querySelector('.player-one-crown').style.visibility = 'hidden';
+  document.querySelector('.player-two-crown').style.visibility = 'hidden';
+  document.querySelector('.btn-roll').disabled = false;
+  document.querySelector('.btn-hold').disabled = false;
+}
 
 function resetMessages() {
   document.querySelector('.result-showdiceresult').style.display = 'none';
@@ -38,23 +41,31 @@ function resetScores() {
 document.querySelector('.btn-hold').addEventListener('click', function() {
   resetMessages();
   document.querySelector('.result-holdresult').style.display = 'block';
-  const currentPlayerGlobalScore = isPlayerOne ? '#player-one-globalscore' : '#player-two-globalscore';
+  const currentPlayerGlobalScoreID = isPlayerOne ? '#player-one-globalscore' : '#player-two-globalscore';
+  setGlobalScoreForPlayer(currentPlayerGlobalScoreID, isPlayerOne);
 
-  globalScores[+isPlayerOne] = globalScores[+isPlayerOne] + roundScore; //implicit casting true/false value
-  document.querySelector(currentPlayerGlobalScore).innerHTML = globalScores[+isPlayerOne];
-
-  if (globalScores[+isPlayerOne] >= maxGameScore) { //if user has won
-    resetMessages();
-    document.querySelector('.player-moves').classList.add('winner');
-    document.querySelector('.btn-roll').disabled = true;
-    document.querySelector('.btn-hold').disabled = true;
-    isPlayerOne ? (document.querySelector('.player-one-crown').style.visibility = 'visible') :
-    (document.querySelector('.player-two-crown').style.visibility = 'visible');
-    document.querySelector('.result-winner').style.display = 'block';
+  const isWinner = globalScores[+isPlayerOne] >= maxGameScore;
+  if (isWinner) { //if user has won
+    updateWinnerView();
   } else {
-    changePlayer(false);
+    updateActivePlayer(!isPlayerOne);
   }
 })
+
+function setGlobalScoreForPlayer(currentPlayerGlobalScoreID, isPlayerOne) {
+  globalScores[+isPlayerOne] = globalScores[+isPlayerOne] + roundScore; //implicit casting true/false value
+  document.querySelector(currentPlayerGlobalScoreID).innerHTML = globalScores[+isPlayerOne];
+}
+
+function updateWinnerView() {
+  resetMessages();
+  document.querySelector('.player-moves').classList.add('winner');
+  document.querySelector('.btn-roll').disabled = true;
+  document.querySelector('.btn-hold').disabled = true;
+  isPlayerOne ? (document.querySelector('.player-one-crown').style.visibility = 'visible') :
+  (document.querySelector('.player-two-crown').style.visibility = 'visible');
+  document.querySelector('.result-winner').style.display = 'block';
+}
 
 document.querySelector('.btn-roll').addEventListener('click', function() {
   resetMessages();
@@ -84,12 +95,12 @@ function updateDiceMessage(diceResult) {
     roundScoreLostDOM.style.display = 'block';
     roundScore = 0;
     document.querySelector(currentPlayerRoundScore).innerHTML = roundScore;
-    changePlayer(false);
+    updateActivePlayer(!isPlayerOne);
   }
 }
 
-function changePlayer(forcePlayerOne) {
-  isPlayerOne = forcePlayerOne ? true : !isPlayerOne;
+function updateActivePlayer(isPlayerOne) {
+  isPlayerOne = isPlayerOne;
   roundScore = 0;
   const currentPlayerRoundScore = isPlayerOne ? '#player-one-roundscore' : '#player-two-roundscore';
   document.querySelector(currentPlayerRoundScore).innerHTML = roundScore;

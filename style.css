@@ -33,6 +33,13 @@ button:disabled {
   cursor: auto;
 }
 
+.winner > button {
+  color: gray;
+}
+.winner > button > i {
+  color: gray;
+}
+
 .header {
   display: flex;
   flex-direction: column;
@@ -60,6 +67,20 @@ button:disabled {
   background-color: var(--background-color);
 }
 
+.player-one-crown {
+  visibility: hidden;
+  width: 70px;
+}
+
+.player-two-crown {
+  visibility: hidden;
+  width: 70px;
+}
+
+.is-active {
+  background-color: var(--active-player-color);
+} 
+
 .player-name {
   display: flex;
   justify-content: center;
@@ -83,10 +104,9 @@ button:disabled {
   color: var(--secondary-color);
 }
 
-.round-score {
-  flex: 1;
-  justify-content: center;
-  margin-bottom: 10px;
+.round-score > .score-number {
+  font-size: 81px;
+  color: var(--icon-color); 
 }
 
 .global-score {
@@ -95,28 +115,12 @@ button:disabled {
   color: white;
   box-shadow: 8px 2px 13px 0px var(--inactive-box-shadow-color);
 }
-
-
 .global-score > .score-number {
   font-size: 65px;
   color: var(--icon-color);
 }
-.round-score > .score-number {
-  font-size: 81px;
-  color: var(--icon-color); 
-}
-
-.is-active {
-  background-color: var(--active-player-color);
-} 
-
 .is-active > .global-score {
   box-shadow: 8px 2px 13px 0px var(--active-box-shadow-color);
-}
-
-.title-current-player {
-  display: flex;
-  align-items: center;
 }
 
 .pig-icon {
@@ -133,41 +137,20 @@ button:disabled {
 .dice-roll-results {
   padding: 20px 0;
 }
-
 .result-roundlost {
   display: none;
 }
-
 .result-holdresult {
+  display: none;
+}
+.result-showdiceresult {
+  display: none;
+}
+.result-winner {
   display: none;
 }
 
 .player-moves {
   display: flex;
   flex-direction: column;
-}
-
-.result-showdiceresult {
-  display: none;
-}
-
-.player-one-crown {
-  visibility: hidden;
-  width: 70px;
-}
-
-.player-two-crown {
-  visibility: hidden;
-  width: 70px;
-}
-
-.winner > button {
-  color: gray;
-}
-.winner > button > i {
-  color: gray;
-}
-
-.result-winner {
-  display: none;
 }
