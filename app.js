@@ -99,8 +99,8 @@ function updateDiceMessage(diceResult) {
   }
 }
 
-function updateActivePlayer(isPlayerOne) {
-  isPlayerOne = isPlayerOne;
+function updateActivePlayer(_isPlayerOne) {
+  isPlayerOne = _isPlayerOne;
   roundScore = 0;
   const currentPlayerRoundScore = isPlayerOne ? '#player-one-roundscore' : '#player-two-roundscore';
   document.querySelector(currentPlayerRoundScore).innerHTML = roundScore;
